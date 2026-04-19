@@ -5,6 +5,7 @@
 The Smart Campus RESTful API is a RESTful web service developed via JAX-RS specifically for the administration of Rooms and Sensors at the university level. It exposes multiple endpoints for interaction between the Campus Facilities Management staff's and automated building systems, which retrieve and manipulate campus resources associated with Rooms/Sensors, as well as their respective sensor readings
 
 ### Project Structure:
+```
 SmartCampusAPI/
    src/main/java/
       com.smartcampus.config       # AppConfig - sets up the JAX-RS application
@@ -14,6 +15,8 @@ SmartCampusAPI/
       com.smartcampus.filter       # Request and response logging filter
       com.smartcampus.storage      # DataStore - holds all in-memory data using HashMaps
    pom.xml                          # Maven project file with Jersey and Jackson dependencies
+
+```
 
 ## 2. Build and Launch Instructions
 
