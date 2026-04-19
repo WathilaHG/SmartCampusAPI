@@ -6,7 +6,7 @@ package com.smartcampus.storage;
 
 /**
  *
- * @author ASUS TUF
+ * @author Wathila Heshan
  */
 import com.smartcampus.model.Room;
 import com.smartcampus.model.Sensor;

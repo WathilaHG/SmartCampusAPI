@@ -6,7 +6,7 @@ package com.smartcampus.exception;
 
 /**
  *
- * @author ASUS TUF
+ * @author Wathila Heshan
  */
 public class SensorUnavailableException extends RuntimeException {
     public SensorUnavailableException(String message) {

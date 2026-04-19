@@ -6,7 +6,7 @@ package com.smartcampus.resource;
 
 /**
  *
- * @author ASUS TUF
+ * @author Wathila Heshan
  */
 import com.smartcampus.exception.LinkedResourceNotFoundException;
 import com.smartcampus.model.ErrorResponse;

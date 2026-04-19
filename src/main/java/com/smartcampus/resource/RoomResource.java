@@ -6,7 +6,7 @@ package com.smartcampus.resource;
 
 /**
  *
- * @author ASUS TUF
+ * @author Wathila Heshan
  */
 import com.smartcampus.exception.RoomNotEmptyException;
 import com.smartcampus.model.ErrorResponse;

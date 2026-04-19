@@ -6,7 +6,7 @@ package com.smartcampus.config;
 
 /**
  *
- * @author ASUS TUF
+ * @author Wathila Heshan
  */
 import javax.ws.rs.ApplicationPath;
 import org.glassfish.jersey.server.ResourceConfig;

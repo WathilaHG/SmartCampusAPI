@@ -6,7 +6,7 @@ package com.smartcampus.model;
 
 /**
  *
- * @author ASUS TUF
+ * @author Wathila Heshan
  */
 import java.util.UUID;
 
@@ -23,12 +23,24 @@ public class SensorReading {
         this.value = value;
     }
 
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public String getId() { 
+        return id; 
+    }
+    public void setId(String id) { 
+        this.id = id; 
+    }
 
-    public long getTimestamp() { return timestamp; }
-    public void setTimestamp(long timestamp) { this.timestamp = timestamp; }
+    public long getTimestamp() { 
+        return timestamp; 
+    }
+    public void setTimestamp(long timestamp) { 
+        this.timestamp = timestamp; 
+    }
 
-    public double getValue() { return value; }
-    public void setValue(double value) { this.value = value; }
+    public double getValue() { 
+        return value; 
+    }
+    public void setValue(double value) { 
+        this.value = value; 
+    }
 }

@@ -6,7 +6,7 @@ package com.smartcampus.model;
 
 /**
  *
- * @author ASUS TUF
+ * @author Wathila Heshan
  */
 
 import java.util.ArrayList;
@@ -26,15 +26,31 @@ public class Room {
         this.capacity = capacity;
     }
 
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public String getId() { 
+        return id; 
+    }
+    public void setId(String id) { 
+        this.id = id; 
+    }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public String getName() { 
+        return name; 
+    }
+    public void setName(String name) { 
+        this.name = name; 
+    }
 
-    public int getCapacity() { return capacity; }
-    public void setCapacity(int capacity) { this.capacity = capacity; }
+    public int getCapacity() { 
+        return capacity; 
+    }
+    public void setCapacity(int capacity) { 
+        this.capacity = capacity; 
+    }
 
-    public List<String> getSensorIds() { return sensorIds; }
-    public void setSensorIds(List<String> sensorIds) { this.sensorIds = sensorIds; }
+    public List<String> getSensorIds() { 
+        return sensorIds; 
+    }
+    public void setSensorIds(List<String> sensorIds) { 
+        this.sensorIds = sensorIds; 
+    }
 }

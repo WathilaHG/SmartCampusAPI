@@ -6,7 +6,7 @@ package com.smartcampus.filter;
 
 /**
  *
- * @author ASUS TUF
+ * @author Wathila Heshan
  */
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;

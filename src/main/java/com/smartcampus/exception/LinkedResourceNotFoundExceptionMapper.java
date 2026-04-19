@@ -6,7 +6,7 @@ package com.smartcampus.exception;
 
 /**
  *
- * @author ASUS TUF
+ * @author Wathila Heshan
  */
 import com.smartcampus.model.ErrorResponse;
 import javax.ws.rs.core.MediaType;

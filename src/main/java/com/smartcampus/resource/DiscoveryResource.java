@@ -6,7 +6,7 @@ package com.smartcampus.resource;
 
 /**
  *
- * @author ASUS TUF
+ * @author Wathila Heshan
  */
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
