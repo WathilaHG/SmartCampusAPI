@@ -1,0 +1,8 @@
+target/
+*.class
+*.war
+*.jar
+nbproject/private/
+.idea/
+*.iml
+.DS_Store
