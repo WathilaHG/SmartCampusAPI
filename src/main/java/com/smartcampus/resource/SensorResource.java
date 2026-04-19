@@ -30,7 +30,7 @@ public class SensorResource {
         List<Sensor> sensorList = new ArrayList<>(DataStore.sensors.values());
         if (type != null && !type.isEmpty()) {
             sensorList = sensorList.stream()
-                    .filter(s -> s.getType().equalsIgnoreCase(type))
+                    .filter(s -> s.getType() != null && s.getType().equalsIgnoreCase(type))
                     .collect(Collectors.toList());
         }
         return Response.ok(sensorList).build();
@@ -38,6 +38,11 @@ public class SensorResource {
 
     @POST
     public Response createSensor(Sensor sensor) {
+        if (sensor == null) {
+            return Response.status(400)
+                    .entity(new ErrorResponse(400, "BAD_REQUEST", "Request body cannot be empty."))
+                    .build();
+        }
         if (sensor.getRoomId() == null || !DataStore.rooms.containsKey(sensor.getRoomId())) {
             throw new LinkedResourceNotFoundException(
                 "The roomId '" + sensor.getRoomId() + "' does not exist. Please create the room first."
@@ -71,5 +76,42 @@ public class SensorResource {
     @Path("/{sensorId}/readings")
     public SensorReadingResource getReadingResource(@PathParam("sensorId") String sensorId) {
         return new SensorReadingResource(sensorId);
+    }
+
+    @DELETE
+    @Path("/{sensorId}")
+    public Response deleteSensor(@PathParam("sensorId") String sensorId) {
+        Sensor sensor = DataStore.sensors.get(sensorId);
+        if (sensor == null) {
+            return Response.status(404)
+                    .entity(new ErrorResponse(404, "NOT_FOUND", "Sensor not found."))
+                    .build();
+        }
+        Room room = DataStore.rooms.get(sensor.getRoomId());
+        if (room != null) {
+            room.getSensorIds().remove(sensorId);
+        }
+        DataStore.sensors.remove(sensorId);
+        return Response.noContent().build();
+    }
+
+    @PUT
+    @Path("/{sensorId}")
+    public Response updateSensor(@PathParam("sensorId") String sensorId, Sensor updated) {
+        if (updated == null) {
+            return Response.status(400)
+                    .entity(new ErrorResponse(400, "BAD_REQUEST", "Request body cannot be empty."))
+                    .build();
+        }
+        Sensor sensor = DataStore.sensors.get(sensorId);
+        if (sensor == null) {
+            return Response.status(404)
+                    .entity(new ErrorResponse(404, "NOT_FOUND", "Sensor not found."))
+                    .build();
+        }
+        if (updated.getStatus() != null) sensor.setStatus(updated.getStatus());
+        if (updated.getType() != null) sensor.setType(updated.getType());
+        if (updated.getRoomId() != null) sensor.setRoomId(updated.getRoomId());
+        return Response.ok(sensor).build();
     }
 }

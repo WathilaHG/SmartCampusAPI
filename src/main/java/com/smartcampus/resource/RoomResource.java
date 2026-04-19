@@ -31,6 +31,11 @@ public class RoomResource {
 
     @POST
     public Response createRoom(Room room) {
+        if (room == null) {
+            return Response.status(400)
+                    .entity(new ErrorResponse(400, "BAD_REQUEST", "Request body cannot be empty."))
+                    .build();
+        }
         if (room.getId() == null || DataStore.rooms.containsKey(room.getId())) {
             return Response.status(400)
                     .entity(new ErrorResponse(400, "BAD_REQUEST",
