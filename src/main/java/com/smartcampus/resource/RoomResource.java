@@ -13,8 +13,11 @@ import com.smartcampus.model.ErrorResponse;
 import com.smartcampus.model.Room;
 import com.smartcampus.storage.DataStore;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +33,7 @@ public class RoomResource {
     }
 
     @POST
-    public Response createRoom(Room room) {
+    public Response createRoom(Room room, @Context UriInfo uriInfo) {
         if (room == null) {
             return Response.status(400)
                     .entity(new ErrorResponse(400, "BAD_REQUEST", "Request body cannot be empty."))
@@ -43,7 +46,9 @@ public class RoomResource {
                     .build();
         }
         DataStore.rooms.put(room.getId(), room);
-        return Response.status(201).entity(room).build();
+        
+        URI location = uriInfo.getAbsolutePathBuilder().path(room.getId()).build();
+        return Response.created(location).entity(room).build();
     }
 
     @GET
@@ -71,9 +76,8 @@ public class RoomResource {
         }
         if (!room.getSensorIds().isEmpty()) {
             throw new RoomNotEmptyException(
-                "Cannot delete room '" + roomId + "'. It still has " +
-                room.getSensorIds().size() + " active sensor(s) assigned."
-            );
+                    "Cannot delete room '" + roomId + "'. It still has " +
+                            room.getSensorIds().size() + " active sensor(s) assigned.");
         }
         DataStore.rooms.remove(roomId);
         return Response.noContent().build();

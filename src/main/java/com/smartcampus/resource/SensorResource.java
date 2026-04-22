@@ -45,8 +45,7 @@ public class SensorResource {
         }
         if (sensor.getRoomId() == null || !DataStore.rooms.containsKey(sensor.getRoomId())) {
             throw new LinkedResourceNotFoundException(
-                "The roomId '" + sensor.getRoomId() + "' does not exist. Please create the room first."
-            );
+                    "The roomId '" + sensor.getRoomId() + "' does not exist. Please create the room first.");
         }
         if (sensor.getId() == null || DataStore.sensors.containsKey(sensor.getId())) {
             return Response.status(400)
@@ -109,9 +108,12 @@ public class SensorResource {
                     .entity(new ErrorResponse(404, "NOT_FOUND", "Sensor not found."))
                     .build();
         }
-        if (updated.getStatus() != null) sensor.setStatus(updated.getStatus());
-        if (updated.getType() != null) sensor.setType(updated.getType());
-        if (updated.getRoomId() != null) sensor.setRoomId(updated.getRoomId());
+        if (updated.getStatus() != null)
+            sensor.setStatus(updated.getStatus());
+        if (updated.getType() != null)
+            sensor.setType(updated.getType());
+        if (updated.getRoomId() != null)
+            sensor.setRoomId(updated.getRoomId());
         return Response.ok(sensor).build();
     }
 }
