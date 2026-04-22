@@ -34,19 +34,8 @@ public class RoomResource {
 
     @POST
     public Response createRoom(Room room, @Context UriInfo uriInfo) {
-        if (room == null) {
-            return Response.status(400)
-                    .entity(new ErrorResponse(400, "BAD_REQUEST", "Request body cannot be empty."))
-                    .build();
-        }
-        if (room.getId() == null || DataStore.rooms.containsKey(room.getId())) {
-            return Response.status(400)
-                    .entity(new ErrorResponse(400, "BAD_REQUEST",
-                            "Room ID is missing or already exists."))
-                    .build();
-        }
         DataStore.rooms.put(room.getId(), room);
-        
+
         URI location = uriInfo.getAbsolutePathBuilder().path(room.getId()).build();
         return Response.created(location).entity(room).build();
     }
