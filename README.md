@@ -1,10 +1,10 @@
 # Smart Campus Sensor and Room Management API
 
-**Name : E.W.H.Gunarathna**
-**Module : Client-Server Architectures - 5COSC022W**
-**IIT ID : 20240063**
-**UOW ID : w2153241**
-**Github Repository :**https://github.com/WathilaHG/SmartCampusAPI.git
+- **Name : E.W.H.Gunarathna**
+- **Module : Client-Server Architectures - 5COSC022W**
+- **IIT ID : 20240063**
+- **UOW ID : w2153241**
+- **Github Repository :**https://github.com/WathilaHG/SmartCampusAPI.git
 
 ## 1. Overview of the API Design
 
