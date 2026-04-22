@@ -1,5 +1,11 @@
 # Smart Campus Sensor and Room Management API
 
+**Name : E.W.H.Gunarathna**
+**Module : Client-Server Architectures - 5COSC022W**
+**IIT ID : 20240063**
+**UOW ID : w2153241**
+**Github Repository :**https://github.com/WathilaHG/SmartCampusAPI.git
+
 ## 1. Overview of the API Design
 
 The Smart Campus RESTful API is a RESTful web service developed via JAX-RS specifically for the administration of Rooms and Sensors at the university level. It exposes multiple endpoints for interaction between the Campus Facilities Management staff's and automated building systems, which retrieve and manipulate campus resources associated with Rooms/Sensors, as well as their respective sensor readings
@@ -30,7 +36,7 @@ This project is configured as a standard Maven-based web application.
 
 ### Steps to Run:
 
-** 1. Clone the repository
+**1. Clone the repository**
 
 ```bash
 git clone https://github.com/WathilaHG/SmartCampusAPI.git
